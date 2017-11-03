@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="fw7/css/framework7.ios.min.css"></link>
+        <link rel="stylesheet" href="fw7/css/framework7.ios.colors.min.css">
+        <link rel="stylesheet" href="fw7/css/framework7-icons.css"></link>
+        <link rel="stylesheet" href="styles.css"></link>
+        <script src="cordova.js"></script>
+        <script src="force.js"></script>
+        <script src="store.js"></script>
+        <script src="main.js"></script>
+        <script src="sections.js"></script>
+        <script src="utils.js"></script>
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="fw7/js/framework7.min.js"></script>
+                
+        <script>
+            main=new Main();
+        </script>
+    </head>
+    
+    <body>
+        
+        <!-- Status bar overlay for fullscreen mode-->
+        <div class="statusbar-overlay"></div>
+        <!-- Panels overlay-->
+        <div class="panel-overlay"></div>
+        <!-- Left panel with reveal effect-->
+        <div class="panel panel-left panel-reveal">
+            <div class="content-block-title">Welcome To Snail Bed</div>
+            <div class="content-block">
+                <p>Snail Bed is an offline storage demonstration application.</p>
+                <p class="buttons-row">
+                <a href="#" class="button button-round active close-panel">Close</a>
+                <a href="#" onclick="sections.clear();" class="button button-round active close-panel">Clear Sections</a>
+                </p>
+                <!--<p><a href="#" class="close-panel">Close</a></p> -->
+            </div>
+        </div>
+        <!-- Views-->
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+                <!-- Top Navbar-->
+                <div class="navbar" style="top:20px">
+                    <!-- Navbar inner for Index page-->
+                    <div data-page="index" class="navbar-inner">
+                        <div class="center sliding" id="appTitle">Snail Bed</div>
+                    </div>
+                    <!-- Navbar inner for Services page-->
+                    <div data-page="services" class="navbar-inner cached">
+                        <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+                        <div class="center sliding">Services</div>
+                    </div>
+                    <!-- Navbar inner for Form page-->
+                    <div data-page="form" class="navbar-inner cached">
+                        <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+                        <div class="center sliding">Form</div>
+                    </div>
+                    <!-- Navbar inner for Section page-->
+                    <div data-page="section" class="navbar-inner cached">
+                        <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+                        <div class="center sliding">Section</div>
+                    </div>
+                </div>
+                <!-- Pages, because we need fixed-through navbar and lbar, it has additional appropriate classes-->
+                <div class="pages navbar-through toolbar-through">
+                    <!-- Index Page-->
+                    <div data-page="index" class="page">
+                        <!-- Scrollable page content-->
+                        <div class="page-content">
+                            <!--<div class="content-block-title">Welcome To Snail Bed</div> -->
+                            <div class="content-block">
+                                <div class="content-block-inner">
+                                    <p>Choose a section below to get started.</p>
+                                    <p>Don't see any sections? Use the sync button to pull down from
+                                       the server.</p>
+                                </div>
+                            </div>
+                            <div class="content-block-title">Sections:</div>
+                            <div id="sectionList">
+<!--                            <div class="list-block">
+                                <ul>
+                                    <li><a href="#" class="item-link">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title placeholder">No sections in store</div>
+                                            </div>
+                                        </div></a></li>
+                                    <li><a href="#" class="item-link">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title placeholder">No sections in store</div>
+                                            </div>
+                                        </div></a></li>
+                                </ul>
+                            </div>
+ -->
+                            </div>
+                        </div>
+                    </div>
+                    <div data-page="section" class="page cached">
+                        <!-- Scrollable page content-->
+                        <div class="page-content">
+                            <div class="content-block-title" id="sectionTitle"></div>
+                            <div class="content-block">
+                                <div class="content-block-inner">
+                                    <p id="sectionDetail"></p>
+                                </div>
+                            </div>
+                            <div class="content-block-title">Pages:</div>
+                            <div id="pageList">
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-page="page" class="page cached">
+                        <!-- Scrollable page content-->
+                        <div class="page-content">
+                            <div class="content-block-title" id="pageTitle"></div>
+                            <div class="content-block">
+                                <div class="content-block-inner">
+                                    <p id="pageDetail"></p>
+                                </div>
+                            </div>
+                            <div id="pageQuestions"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <a href="#index" class="link" onclick="sections.list();"><i class="f7-icons">home</i></a>
+                        <a href="#" onclick="sections.queryAllSections(sections.queriedForSync);" class="link"><i class="f7-icons">reload_round</i></a>
+                        <a href="#" class="link icon-only open-panel"> <i class="f7-icons">info</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
