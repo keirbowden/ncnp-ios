@@ -1,4 +1,4 @@
-# ncnp-ios
+# No Connection? No Problem! iOS Side
 
 ## Setup Instructions
 
